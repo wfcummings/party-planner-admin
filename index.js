@@ -57,6 +57,21 @@ async function getGuests() {
   }
 }
 
+async function addParty(party) {
+  try {
+    const response = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(party),
+    });
+    const result = await response.json();
+    if (!response.ok) {
+      throw result.error;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 // === Components ===
 
 /** Party name that shows more details about the party when clicked */
