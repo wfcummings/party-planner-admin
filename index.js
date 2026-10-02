@@ -61,7 +61,7 @@ async function getGuests() {
 
 async function addParty(party) {
   try {
-    const response = await fetch(API, {
+    const response = await fetch(API + "/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(party),
@@ -71,8 +71,8 @@ async function addParty(party) {
       throw result.error;
     }
     getParties();
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
+    console.error(e);
   }
 }
 // === Components ===
